@@ -7,6 +7,7 @@ This database stores personal as well as MUN related information.
 Users can access this database to retrive information. Database administrators can update, delete, edit, and retrive the information. 
 
 INSTALLATION 
+
 Firstly, a user should install an application such as MAMP or Uniform Server. 
 Then, we should run the SQL and Apache server
 We can then create a php file inside a folder in either htdocs (if you are using xampp) or in www (Uniform server)
