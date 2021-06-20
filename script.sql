@@ -1,0 +1,52 @@
+CREATE TABLE Organizing_committee
+(
+  ID INT NOT NULL,
+  Role VARCHAR(50) NOT NULL,
+  Name VARCHAR(100) NOT NULL,
+  PRIMARY KEY (ID)
+);
+
+CREATE TABLE Delegates
+(
+  DelegateID INT NOT NULL,
+  Assignedcountry VARCHAR(100) NOT NULL,
+  CommitteeN VARCHAR(50) NOT NULL,
+  Group VARCHAR(10),
+  DelName VARCHAR(100) NOT NULL,
+  ID INT NOT NULL,
+  PRIMARY KEY (DelegateID),
+  FOREIGN KEY (ID) REFERENCES Organizing_committee(ID)
+);
+
+CREATE TABLE Pdetails
+(
+  Flight VARCHAR(50) NOT NULL,
+  Room VARCHAR(20) NOT NULL,
+  Country VARCHAR(100) NOT NULL,
+  Visareq VARCHAR(20),
+  IDS INT NOT NULL,
+  DelegateID INT NOT NULL,
+  PRIMARY KEY (IDS),
+  FOREIGN KEY (DelegateID) REFERENCES Delegates(DelegateID)
+);
+
+CREATE TABLE Dais_
+(
+  DaisID INT NOT NULL,
+  Position VARCHAR(50) NOT NULL,
+  Committee VARCHAR(50) NOT NULL,
+  Dname VARCHAR(100) NOT NULL,
+  IDS INT NOT NULL,
+  PRIMARY KEY (DaisID),
+  FOREIGN KEY (IDS) REFERENCES Pdetails(IDS)
+);
+
+CREATE TABLE Is_assigned_
+(
+  DelegateID INT NOT NULL,
+  DaisID INT NOT NULL,
+  PRIMARY KEY (DelegateID, DaisID),
+  FOREIGN KEY (DelegateID) REFERENCES Delegates(DelegateID),
+  FOREIGN KEY (DaisID) REFERENCES Dais_(DaisID)
+);
+
