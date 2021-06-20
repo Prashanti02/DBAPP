@@ -24,7 +24,7 @@ echo "DELEGATE DETAILS"."<br>"."<br>";
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      echo "Delegate ID : " . $row["delegateID"]."<br>"."    Delegate Name:".$row["delName"]. "<br>". "<br>"."<br>";
+      echo  $row["delegateID"]."<br>" .$row["delName"]. "<br>". "<br>"."<br>";
     }
   } else {
     echo "0 results";
@@ -39,10 +39,22 @@ if ($result->num_rows > 0) {
     if ($_POST['DelegateID'])
     {
         $id = $_POST['DelegateID'];
+        $stmt = $conn->prepare("SELECT * FROM Delegates WHERE DelegateID = ?"); 
+    
+
+    $ok = $stmt->bind_param( "i", $id);  
+    if (!$ok) 
+    { 
+        die("Bind param error"); 
+    }
+      $ok=$stmt->execute();  
+    if (!$ok) 
+    { 
+        die("Exec error"); 
+    }  
+    $result = $stmt->get_result();
     }
   
-    $sql = "SELECT * FROM Delegates";
-    $result = $conn->query($sql);
 
 while($row = $result->fetch_assoc()) {
     if ($row["DelegateID"] == $id) {
