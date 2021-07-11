@@ -1,4 +1,4 @@
-CREATE TABLE Organizing_committee
+CREATE TABLE organizingcommittee
 (
   ID INT NOT NULL,
   Role VARCHAR(50) NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE Organizing_committee
   PRIMARY KEY (ID)
 );
 
-CREATE TABLE Delegates
+CREATE TABLE delegates
 (
   DelegateID INT NOT NULL,
   Assignedcountry VARCHAR(100) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE Delegates
   PRIMARY KEY (DelegateID)
 );
 
-CREATE TABLE Pdetails
+CREATE TABLE pdetails
 (
   Flight VARCHAR(50) NOT NULL,
   Room VARCHAR(20) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE Pdetails
   PRIMARY KEY (NO)
 );
 
-CREATE TABLE Dais_
+CREATE TABLE dais
 (
   DaisID INT NOT NULL,
   Position VARCHAR(50) NOT NULL,
@@ -39,17 +39,17 @@ CREATE TABLE Dais_
 
 
 
-INSERT INTO `delegates`(`delegateID`, `delName`, `committeeN`, `assignedCountry`, `group`) VALUES (2103,"Heather Mouuse","SOCHUM","USA","N")
-INSERT INTO `delegates`(`delegateID`, `delName`, `committeeN`, `assignedCountry`, `group`) VALUES (2104,"Jason K","UNDP","Nepal","N")
+INSERT INTO `delegates`(`delegateID`, `delName`, `committeeN`, `assignedCountry`, `group`) VALUES (2103,"Heather Mouuse","SOCHUM","USA","N");
+INSERT INTO `delegates`(`delegateID`, `delName`, `committeeN`, `assignedCountry`, `group`) VALUES (2104,"Jason K","UNDP","Nepal","N");
 
-INSERT INTO `dais`(`daisID`, `dName`, `committee`, `position`) VALUES (1105,"Richard Sean","SOCHUM","Vice-chair")
-INSERT INTO `dais`(`daisID`, `dName`, `committee`, `position`) VALUES (1106,"Samantha Paul","UNHCR","Vice-chair")
+INSERT INTO `dais`(`daisID`, `dName`, `committee`, `position`) VALUES (1105,"Richard Sean","SOCHUM","Vice-chair");
+INSERT INTO `dais`(`daisID`, `dName`, `committee`, `position`) VALUES (1106,"Samantha Paul","UNHCR","Vice-chair");
 
-INSERT INTO `organizingcommittee`(`ID`, `name`, `role`, `responsibility`) VALUES (4, "Luke M", "Deelgate Affairs", "Certificates management")
-INSERT INTO `organizingcommittee`(`ID`, `name`, `role`, `responsibility`) VALUES (5, "Logan H", "Delegate Affairs", "Closing")
+INSERT INTO `organizingcommittee`(`ID`, `name`, `role`) VALUES (4, "Luke M", "Deelgate Affairs");
+INSERT INTO `organizingcommittee`(`ID`, `name`, `role`) VALUES (5, "Logan H", "Delegate Affairs");
 
-INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`, `IDS`) VALUES (2,"QR431","A235","Y","Germany","1102")
-INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`, `IDS`) VALUES (3,"EI567","A437","Y","France","1103")
+INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`, `IDS`) VALUES (2,"QR431","A235","Y","Germany","1102");
+INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`, `IDS`) VALUES (3,"EI567","A437","Y","France","1103");
 
 
 
