@@ -14,8 +14,7 @@ CREATE TABLE Delegates
   Group VARCHAR(10),
   DelName VARCHAR(100) NOT NULL,
   ID INT NOT NULL,
-  PRIMARY KEY (DelegateID),
-  FOREIGN KEY (ID) REFERENCES Organizing_committee(ID)
+  PRIMARY KEY (DelegateID)
 );
 
 CREATE TABLE Pdetails
@@ -24,10 +23,10 @@ CREATE TABLE Pdetails
   Room VARCHAR(20) NOT NULL,
   Country VARCHAR(100) NOT NULL,
   Visareq VARCHAR(20),
+  NO INT NOT NULL,
   IDS INT NOT NULL,
   DelegateID INT NOT NULL,
-  PRIMARY KEY (IDS),
-  FOREIGN KEY (DelegateID) REFERENCES Delegates(DelegateID)
+  PRIMARY KEY (NO)
 );
 
 CREATE TABLE Dais_
@@ -37,8 +36,7 @@ CREATE TABLE Dais_
   Committee VARCHAR(50) NOT NULL,
   Dname VARCHAR(100) NOT NULL,
   IDS INT NOT NULL,
-  PRIMARY KEY (DaisID),
-  FOREIGN KEY (IDS) REFERENCES Pdetails(IDS)
+  PRIMARY KEY (DaisID)
 );
 
 CREATE TABLE Is_assigned_
