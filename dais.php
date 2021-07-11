@@ -1,69 +1,63 @@
 <?php 
  include 'connect.php';
-  ?>
+  ?> 
 
-<html>   
-<head>   
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> DB APP </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="header.css">
 </head>
 <body>
-  <?php 
+<?php 
  require 'header.php';
  ?>
 
  <br/> 
-
 <div class="container">
-  <h2>ORAGANIZING COMMITTEE </h2>
-  <form action="orgcom.php" method= "post">
+  <h2>DAIS </h2>
+  <form action="dais.php" method= "post">
     <div class="form-group">
-      <label for="ID">ID:</label>
-      <input type="text" class="form-control" id="ID" placeholder="Enter ID" name="ID">
+      <label for="daisID">Dais ID:</label>
+      <input type="text" class="form-control" id="daisID" placeholder="Enter ID" name="daisID">
     </div>
     <div class="form-group">
-      <label for="Name">Name</label>
-      <input type="text" class="form-control" id="Name" placeholder="Enter Name" name="Name">
+      <label for="dName">Dais Name</label>
+      <input type="text" class="form-control" id="dName" placeholder="Enter Name" name="dName">
     </div>
     <div class="form-group">
-      <label for="Role">Role</label>
-      <input type="int" class="form-control" id="Role" placeholder="Enter Role" name="Role">
+      <label for="committee">Committee</label>
+      <input type="int" class="form-control" id="committee" placeholder="Enter Committee" name="committee">
     </div>
-    
-
-
-   
     <button type="submit" name = "submit">Submit</button>
   </form>
 </div>
-<br/>
 
-<div class="container">
-  <h2>ORGANIZING COMMITTEE</h2>           
+    <div class="container">
+  <h2>DAIS</h2>           
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>Dais ID</th>
         <th>Name</th>
-        <th>Role</th>
+        <th>Committee</th>
       </tr>
     </thead>
 
-<?php
+    <?php
 
-  $sql = "SELECT ID, name, role from organizingcommittee";
+  $sql = "SELECT daisID, dName, committee from dais";
         $result = $conn -> query ($sql);
         if ($result -> num_rows > 0)
         {
             while ($row = $result -> fetch_assoc())
             {
-                echo "<tr><td>".$row["ID"]. "</td><td>". $row["name"]. "</td><td>". $row["role"]."</td></tr>";
+                echo "<tr><td>".$row["daisID"]. "</td><td>". $row["dName"]. "</td><td>". $row["committee"]."</td></tr>";
             }
             echo "</table>";
         }
@@ -76,10 +70,10 @@
     ?>
   </table>
 </div>
+  
+  <?php 
 
-<?php
-
-$sql = "SELECT ID, Name, role FROM organizingcommittee";
+$sql = "SELECT daisID, dName, committee from dais";
 $result = $conn->query($sql);
 
  
@@ -87,12 +81,12 @@ $result = $conn->query($sql);
 
  if(isset($_POST['submit']))
  {
-     if(!empty($_POST['ID']) && !empty($_POST['name']) && !empty($_POST['role'] )){
-         $delegateID = $_POST['ID'];
-         $delName = $_POST['name'];
-         $committeeN = $_POST['role']; 
+     if(!empty($_POST['daisID']) && !empty($_POST['dName']) && !empty($_POST['committee'] )){
+         $daisID = $_POST['daisID'];
+         $dName = $_POST['dName'];
+         $committee = $_POST['committee']; 
  
-         $query = "insert into organizingcommittee (ID, name, role) values ('$ID','$name','$role')";
+         $query = "insert into dais (daisID, dName, committee) values ('$daisID','$dName','$committee')";
  
          $run = mysqli_query($conn, $query) or die (mysqli_error());
  
@@ -117,14 +111,9 @@ $result = $conn->query($sql);
 
 
 
-
   $conn->close();
 
 
 ?>
-
-
-
- </head>
 </body>
 </html>

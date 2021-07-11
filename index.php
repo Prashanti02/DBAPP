@@ -1,5 +1,8 @@
 
-
+ <?php 
+ include 'connect.php';
+  ?> 
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,31 +12,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="header.css">
 </head>
 <body>
-  <div class="title">
+<?php 
+ require 'header.php';
+ ?>
 
-	<h1> XAMUN DATABASE </h1>
+<br/> <br/>
+
+<h3> This page belongs to XAMUN. This page can be used to view details of participating members and to register new members. </h3>
+
+<br/> <br/> 
+<div class="mun">
+    <style>
+    img{
+        height: 100px;
+        width: cover;
+    }
+</style>
+<img src="https://thebasilisk.org/wp-content/uploads/2020/03/MUN-Culture-1.jpg" alt="MUN">
 </div>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" href="index.php">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="delegates.php">Delegates</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Dais</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="orgcom.php">Organizing Committee</a>
-    </li>
-  </ul>
-</nav>
-	
-  <h1> DELEGATES WORKS FOR NOW </h1>
+<h4> In use for authorized personnel only </h4>
+<br/> <br/> 
+<h4> BETA TEST ONLY!!!! </h4>
 
   
 </body>

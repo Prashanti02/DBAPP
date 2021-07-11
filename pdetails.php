@@ -18,22 +18,21 @@
  require 'header.php';
  ?>
 
- <br/> 
-
+<br/> 
 <div class="container">
-  <h2>ORAGANIZING COMMITTEE </h2>
-  <form action="orgcom.php" method= "post">
+  <h2>DELEGATES </h2>
+  <form action="pdetails.php" method= "post">
     <div class="form-group">
-      <label for="ID">ID:</label>
-      <input type="text" class="form-control" id="ID" placeholder="Enter ID" name="ID">
+      <label for="NO">Id Number:</label>
+      <input type="text" class="form-control" id="NO" placeholder="Enter Number" name="NO">
     </div>
     <div class="form-group">
-      <label for="Name">Name</label>
-      <input type="text" class="form-control" id="Name" placeholder="Enter Name" name="Name">
+      <label for="Flight">Flight</label>
+      <input type="text" class="form-control" id="Flight" placeholder="Enter Flight" name="Flight">
     </div>
     <div class="form-group">
-      <label for="Role">Role</label>
-      <input type="int" class="form-control" id="Role" placeholder="Enter Role" name="Role">
+      <label for="Room">Room</label>
+      <input type="int" class="form-control" id="Room" placeholder="Enter Room" name="Room">
     </div>
     
 
@@ -42,28 +41,29 @@
     <button type="submit" name = "submit">Submit</button>
   </form>
 </div>
-<br/>
+
+
 
 <div class="container">
-  <h2>ORGANIZING COMMITTEE</h2>           
+  <h2>Personal Details</h2>           
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Role</th>
+        <th>Number</th>
+        <th>Flight</th>
+        <th>Room</th>
       </tr>
     </thead>
-
+  
 <?php
 
-  $sql = "SELECT ID, name, role from organizingcommittee";
+  $sql = "SELECT NO, Flight, Room from pdetails";
         $result = $conn -> query ($sql);
         if ($result -> num_rows > 0)
         {
             while ($row = $result -> fetch_assoc())
             {
-                echo "<tr><td>".$row["ID"]. "</td><td>". $row["name"]. "</td><td>". $row["role"]."</td></tr>";
+                echo "<tr><td>".$row["NO"]. "</td><td>". $row["Flight"]. "</td><td>". $row["Room"]."</td></tr>";
             }
             echo "</table>";
         }
@@ -77,9 +77,12 @@
   </table>
 </div>
 
-<?php
 
-$sql = "SELECT ID, Name, role FROM organizingcommittee";
+
+
+<?php 
+
+$sql = "SELECT NO, Flight, Room from pdetails";
 $result = $conn->query($sql);
 
  
@@ -87,12 +90,12 @@ $result = $conn->query($sql);
 
  if(isset($_POST['submit']))
  {
-     if(!empty($_POST['ID']) && !empty($_POST['name']) && !empty($_POST['role'] )){
-         $delegateID = $_POST['ID'];
-         $delName = $_POST['name'];
-         $committeeN = $_POST['role']; 
+     if(!empty($_POST['NO']) && !empty($_POST['Flight']) && !empty($_POST['Room'] )){
+         $NO = $_POST['NO'];
+         $Flight = $_POST['Flight'];
+         $Room = $_POST['Room']; 
  
-         $query = "insert into organizingcommittee (ID, name, role) values ('$ID','$name','$role')";
+         $query = "insert into pdetails (NO, Flight, Room) values ('$NO','$Flight','$Room')";
  
          $run = mysqli_query($conn, $query) or die (mysqli_error());
  
@@ -117,14 +120,10 @@ $result = $conn->query($sql);
 
 
 
-
   $conn->close();
 
 
 ?>
 
-
-
- </head>
 </body>
 </html>

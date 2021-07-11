@@ -1,14 +1,24 @@
+<?php 
+ include 'connect.php';
+  ?>
+
 <html>   
 <head>   
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="header.css">
+</head>
 <body>
+  <?php 
+ require 'header.php';
+ ?>
 
+<br/> 
 <div class="container">
   <h2>DELEGATES </h2>
   <form action="delegates.php" method= "post">
@@ -32,18 +42,7 @@
   </form>
 </div>
 
-</body>
-</head>
 
-<head>
-  <title>Delegates </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
 
 <div class="container">
   <h2>DELEGATES</h2>           
@@ -55,16 +54,8 @@
         <th>Committee</th>
       </tr>
     </thead>
-
-<?php 
-$dbhost = 'localhost';         
-$dbuser = 'root';         
-$dbpass = 'admin';         
-$dbname = 'dbmun';         
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);         
-if(! $conn ) {            
-die('Could not connect: ' . mysqli_error());         
-}
+  
+<?php
 
   $sql = "SELECT delegateID, delName, committeeN from delegates";
         $result = $conn -> query ($sql);
@@ -86,19 +77,10 @@ die('Could not connect: ' . mysqli_error());
   </table>
 </div>
 
-</body>
 
 
-<?php    
-$dbhost = 'localhost';         
-$dbuser = 'root';         
-$dbpass = 'admin';         
-$dbname = 'dbmun';         
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);         
-if(! $conn ) 
-{            
-die('Could not connect: ' . mysqli_error());         
-}
+
+<?php 
 
 $sql = "SELECT delegateID, delName, committeeN FROM delegates";
 $result = $conn->query($sql);
@@ -135,7 +117,6 @@ $result = $conn->query($sql);
      }
  }
 
-//JUNE 27TH DATA DISPLAY 
 
 
 
@@ -144,8 +125,5 @@ $result = $conn->query($sql);
 
 ?>
 
-
-
- </head>
 </body>
 </html>
