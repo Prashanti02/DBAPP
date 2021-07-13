@@ -17,10 +17,14 @@
   <?php 
  require 'header.php';
  ?>
-
+<style>
+body{
+ background-image: linear-gradient(to right, lightsalmon, lightyellow);
+}
+</style>
 <br/> 
 <div class="container">
-  <h2>DELEGATES </h2>
+  <h2>DELEGATES' FORM </h2>
   <form action="delegates.php" method= "post">
     <div class="form-group">
       <label for="delegateID">Delegate ID:</label>

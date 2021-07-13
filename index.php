@@ -19,24 +19,48 @@
  require 'header.php';
  ?>
 
-<br/> <br/>
 
-<h3> This page belongs to XAMUN. This page can be used to view details of participating members and to register new members. </h3>
+<style>
+h3{
+    background-color: blue;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    position: relative;
+    top: 10px;
+    color: white;
+    text-decoration: none;
+}
 
-<br/> <br/> 
-<div class="mun">
-    <style>
-    img{
-        height: 100px;
-        width: cover;
-    }
+body{
+    background-image: linear-gradient(to right, beige , blue);
+}
 </style>
-<img src="https://thebasilisk.org/wp-content/uploads/2020/03/MUN-Culture-1.jpg" alt="MUN">
-</div>
-<h4> In use for authorized personnel only </h4>
-<br/> <br/> 
-<h4> BETA TEST ONLY!!!! </h4>
 
-  
+<div class="container-fluid">
+    <br/>
+  <h1 style= "text-align: center;">XAMUN</h1>
+  <div class="row">
+    <div class="col-sm-3 col-md-3">
+        <br/> <br/> 
+      <a href="delegates.php"> <h3> Delegates </h3> </a>
+      <br/>
+      <a href="dais.php"><h3> Dais </h3></a>
+      <br/>
+      <a href="orgcom.php"><h3> Org Com </h3></a>
+      <br/>
+      <a href="pdetails.php"><h3> P Details </h3></a>
+       <br/>
+   <a href="https://github.com/Prashanti02/DBAPP/wiki"> <h3> HELP </h3> </a>
+    </div>
+
+    <div class="col-sm-9 col-md-6" style="background-color:black;">
+      <img src="https://thebasilisk.org/wp-content/uploads/2020/03/MUN-Culture-1.jpg" alt="MUN"/>
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>
+

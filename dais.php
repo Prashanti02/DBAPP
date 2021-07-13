@@ -17,10 +17,14 @@
 <?php 
  require 'header.php';
  ?>
-
+<style>
+body{
+ background-image: linear-gradient(to right, lightsalmon, lightyellow);
+}
+</style>
  <br/> 
 <div class="container">
-  <h2>DAIS </h2>
+  <h2>DAIS' FORM </h2>
   <form action="dais.php" method= "post">
     <div class="form-group">
       <label for="daisID">Dais ID:</label>
