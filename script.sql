@@ -52,8 +52,8 @@ INSERT INTO `organizingcommittee`(`ID`, `name`, `role`, `responsibility`) VALUES
 INSERT INTO `organizingcommittee`(`ID`, `name`, `role`, `responsibility`) VALUES (5, "Logan H", "Delegate Affairs", "Awards");
 
 INSERT INTO `pdetails`(`NO`, `Flight`, `Room`,  `Visareq`, `Country`, `IDS`) VALUES (2,"QR431","A235","Y", "Switzerland", 1105);
-INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`  `IDS`) VALUES (3,"EI567","A437", "N", "Nepal", 2013);
-INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`  `IDS`) VALUES (4, "FA234", "A546", "Y", 4);
+INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`  `IDS`) VALUES (3,"EI567","A437", "N", "Nepal", 1106);
+
 
 
 
