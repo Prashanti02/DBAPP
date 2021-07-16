@@ -51,8 +51,8 @@ INSERT INTO `dais`(`daisID`, `dName`, `committee`, `position`) VALUES (1106,"Sam
 INSERT INTO `organizingcommittee`(`ID`, `name`, `role`, `responsibility`) VALUES (4, "Luke M", "Deelgate Affairs", "Manage delegates");
 INSERT INTO `organizingcommittee`(`ID`, `name`, `role`, `responsibility`) VALUES (5, "Logan H", "Delegate Affairs", "Awards");
 
-INSERT INTO `pdetails`(`NO`, `Flight`, `Room`,  `Visareq`, `Country`, `IDS`) VALUES (2,"QR431","A235","Y", "Switzerland", "1102");
-INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`  `IDS`) VALUES (3,"EI567","A437", "N", "Nepal", "1103");
+INSERT INTO `pdetails`(`NO`, `Flight`, `Room`,  `Visareq`, `Country`, `IDS`) VALUES (2,"QR431","A235","Y", "Switzerland", "1105");
+INSERT INTO `pdetails`(`NO`, `Flight`, `Room`, `Visareq`, `Country`  `IDS`) VALUES (3,"EI567","A437", "N", "Nepal", "2103");
 
 
 
