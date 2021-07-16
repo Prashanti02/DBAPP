@@ -42,8 +42,8 @@ CREATE TABLE pdetails
 
 
 
-INSERT INTO `delegates`(`delegateID`, `delName`, `committee`, `assignedCountry`) VALUES (2103,"Heather Mouuse","SOCHUM","USA");
-INSERT INTO `delegates`(`delegateID`, `delName`, `committee`, `assignedCountry`) VALUES (2104,"Jason K","UNDP","Brazil");
+INSERT INTO `delegates`(`delegateID`, `delName`, `committeeN`, `assignedCountry`) VALUES (2103,"Heather Mouuse","SOCHUM","USA");
+INSERT INTO `delegates`(`delegateID`, `delName`, `committeeN`, `assignedCountry`) VALUES (2104,"Jason K","UNDP","Brazil");
 
 INSERT INTO `dais`(`daisID`, `dName`, `committee`, `position`) VALUES (1105,"Richard Sean","SOCHUM","Chair");
 INSERT INTO `dais`(`daisID`, `dName`, `committee`, `position`) VALUES (1106,"Samantha Paul","UNHCR", "Vice-chair");
