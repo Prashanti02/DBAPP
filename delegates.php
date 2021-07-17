@@ -36,12 +36,16 @@ body{
     </div>
     <div class="form-group">
       <label for="committeeN">Committee</label>
-      <input type="int" class="form-control" id="committeeN" placeholder="Enter Committee" name="committeeN">
+      <input type="text" class="form-control" id="committeeN" placeholder="Enter Committee" name="committeeN">
     </div>
-    
-
-
-   
+    <div class="form-group">
+      <label for="assignedCountry">Assigned Country</label>
+      <input type="text" class="form-control" id="assignedCountry" placeholder="Enter Assigned Country" name="assignedCountry">
+    </div>
+    <div class="form-group">
+      <label for="group">ID</label>
+      <input type="text" class="form-control" id="ID" placeholder="Enter ID" name="ID">
+    </div>
     <button type="submit" name = "submit">Submit</button>
   </form>
 </div>
@@ -56,18 +60,20 @@ body{
         <th>Delegate ID</th>
         <th>Name</th>
         <th>Committee</th>
+        <th>Assigned Country </th>
+        <th>ID </th>
       </tr>
     </thead>
   
 <?php
 
-  $sql = "SELECT delegateID, delName, committeeN from delegates";
+  $sql = "SELECT delegateID, delName, committeeN, assignedCountry, ID FROM delegates";
         $result = $conn -> query ($sql);
         if ($result -> num_rows > 0)
         {
             while ($row = $result -> fetch_assoc())
             {
-                echo "<tr><td>".$row["delegateID"]. "</td><td>". $row["delName"]. "</td><td>". $row["committeeN"]."</td></tr>";
+                echo "<tr><td>".$row["delegateID"]. "</td><td>". $row["delName"]. "</td><td>". $row["committeeN"]."</td><td>". $row["assignedCountry"]. "</td><td>". $row["ID"]. "</td></tr>";
             }
             echo "</table>";
         }
@@ -76,17 +82,8 @@ body{
             echo "0 result"; 
         }
     
-        $conn->close();
-    ?>
-  </table>
-</div>
 
-
-
-
-<?php 
-
-$sql = "SELECT delegateID, delName, committeeN FROM delegates";
+$sql = "SELECT delegateID, delName, committeeN, assignedCountry, ID FROM delegates";
 $result = $conn->query($sql);
 
  
@@ -94,12 +91,14 @@ $result = $conn->query($sql);
 
  if(isset($_POST['submit']))
  {
-     if(!empty($_POST['delegateID']) && !empty($_POST['delName']) && !empty($_POST['committeeN'] )){
+     if(!empty($_POST['delegateID']) && !empty($_POST['delName']) && !empty($_POST['committeeN'] ) && !empty($_POST['assignedCountry'] ) && !empty($_POST['ID'] )){
          $delegateID = $_POST['delegateID'];
          $delName = $_POST['delName'];
          $committeeN = $_POST['committeeN']; 
+         $assignedCountry= $_POST['assignedCountry'];
+         $ID= $_POST['ID'];
  
-         $query = "insert into delegates (delegateID, delName, committeeN) values ('$delegateID','$delName','$committeeN')";
+         $query = "INSERT into delegates (delegateID, delName, committeeN, assignedCountry, ID) VALUES ('$delegateID','$delName','$committeeN', '$assignedCountry', '$ID')";
  
          $run = mysqli_query($conn, $query) or die (mysqli_error());
  
@@ -121,13 +120,10 @@ $result = $conn->query($sql);
      }
  }
 
-
-
-
   $conn->close();
 
-
 ?>
-
+ </table>
+</div>
 </body>
 </html>

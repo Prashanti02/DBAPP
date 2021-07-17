@@ -38,10 +38,18 @@ body{
       <label for="Room">Room</label>
       <input type="int" class="form-control" id="Room" placeholder="Enter Room" name="Room">
     </div>
-    
-
-
-   
+     <div class="form-group">
+      <label for="Visareq">Visareq</label>
+      <input type="int" class="form-control" id="Visareq" placeholder="Enter requirement" name="Visareq">
+    </div>
+     <div class="form-group">
+      <label for="Country">Country</label>
+      <input type="int" class="form-control" id="Country" placeholder="Enter Country" name="Country">
+    </div>
+     <div class="form-group">
+      <label for="IDS">IDS</label>
+      <input type="int" class="form-control" id="IDS" placeholder="Enter IDS" name="IDS">
+    </div>
     <button type="submit" name = "submit">Submit</button>
   </form>
 </div>
@@ -53,21 +61,25 @@ body{
   <table class="table">
     <thead>
       <tr>
-        <th>Number</th>
+        <th>NO</th>
         <th>Flight</th>
         <th>Room</th>
+        <th>Visareq</th>
+        <th>Country </th>
+        <th> IDS </th>
+        
       </tr>
     </thead>
   
 <?php
 
-  $sql = "SELECT NO, Flight, Room from pdetails";
+  $sql = "SELECT NO, Flight, Room, Visareq, Country, IDS from pdetails";
         $result = $conn -> query ($sql);
         if ($result -> num_rows > 0)
         {
             while ($row = $result -> fetch_assoc())
             {
-                echo "<tr><td>".$row["NO"]. "</td><td>". $row["Flight"]. "</td><td>". $row["Room"]."</td></tr>";
+                echo "<tr><td>".$row["NO"]. "</td><td>". $row["Flight"]. "</td><td>". $row["Room"]."</td><td>". $row["Visareq"]. "</td><td>". $row["Country"]. "</td><td>". $row["IDS"]. "</td></tr>";
             }
             echo "</table>";
         }
@@ -76,17 +88,8 @@ body{
             echo "0 result"; 
         }
     
-        $conn->close();
-    ?>
-  </table>
-</div>
-
-
-
-
-<?php 
-
-$sql = "SELECT NO, Flight, Room from pdetails";
+      
+$sql = "SELECT NO, Flight, Room, Visareq, Country, IDS from pdetails";
 $result = $conn->query($sql);
 
  
@@ -94,12 +97,16 @@ $result = $conn->query($sql);
 
  if(isset($_POST['submit']))
  {
-     if(!empty($_POST['NO']) && !empty($_POST['Flight']) && !empty($_POST['Room'] )){
+     if(!empty($_POST['NO']) && !empty($_POST['Flight']) && !empty($_POST['Room'] ) && !empty($_POST['Visareq'] ) && !empty($_POST['Country'] ) && !empty($_POST['IDS'] )){
          $NO = $_POST['NO'];
          $Flight = $_POST['Flight'];
          $Room = $_POST['Room']; 
+         $Visareq= $_POST['Visareq'];
+         $Country= $_POST['Country'];
+         $IDS= $_POST['IDS'];
+        
  
-         $query = "insert into pdetails (NO, Flight, Room) values ('$NO','$Flight','$Room')";
+         $query = "INSERT into pdetails (NO, Flight, Room, Visareq, Country, IDS) VALUES ('$NO','$Flight','$Room','$Visareq', '$Country', '$IDS')";
  
          $run = mysqli_query($conn, $query) or die (mysqli_error());
  
@@ -128,6 +135,7 @@ $result = $conn->query($sql);
 
 
 ?>
-
+ </table>
+</div>
 </body>
 </html>

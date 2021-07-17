@@ -32,21 +32,21 @@ body{
       <input type="text" class="form-control" id="ID" placeholder="Enter ID" name="ID">
     </div>
     <div class="form-group">
-      <label for="Name">Name</label>
-      <input type="text" class="form-control" id="Name" placeholder="Enter Name" name="Name">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
     </div>
     <div class="form-group">
-      <label for="Role">Role</label>
-      <input type="int" class="form-control" id="Role" placeholder="Enter Role" name="Role">
+      <label for="role">Role</label>
+      <input type="int" class="form-control" id="role" placeholder="Enter Role" name="role">
     </div>
-    
-
-
-   
+     <div class="form-group">
+    <label for="responsibility">Resposibility</label>
+      <input type="text" class="form-control" id="responsibility" placeholder="Enter Resposibility" name="responsibility">
+    </div>
     <button type="submit" name = "submit">Submit</button>
   </form>
 </div>
-<br/>
+
 
 <div class="container">
   <h2>ORGANIZING COMMITTEE</h2>           
@@ -56,18 +56,19 @@ body{
         <th>ID</th>
         <th>Name</th>
         <th>Role</th>
+        <th>Responsibility</th>
       </tr>
     </thead>
 
 <?php
 
-  $sql = "SELECT ID, name, role from organizingcommittee";
+  $sql = "SELECT ID, name, role, responsibility from organizingcommittee";
         $result = $conn -> query ($sql);
         if ($result -> num_rows > 0)
         {
             while ($row = $result -> fetch_assoc())
             {
-                echo "<tr><td>".$row["ID"]. "</td><td>". $row["name"]. "</td><td>". $row["role"]."</td></tr>";
+                echo "<tr><td>".$row["ID"]. "</td><td>". $row["name"]. "</td><td>". $row["role"]."</td><td>". $row["responsibility"]. "</td></tr>";
             }
             echo "</table>";
         }
@@ -76,14 +77,8 @@ body{
             echo "0 result"; 
         }
     
-        $conn->close();
-    ?>
-  </table>
-</div>
-
-<?php
-
-$sql = "SELECT ID, Name, role FROM organizingcommittee";
+      
+$sql = "SELECT ID, name, role, responsibility FROM organizingcommittee";
 $result = $conn->query($sql);
 
  
@@ -91,12 +86,13 @@ $result = $conn->query($sql);
 
  if(isset($_POST['submit']))
  {
-     if(!empty($_POST['ID']) && !empty($_POST['name']) && !empty($_POST['role'] )){
-         $delegateID = $_POST['ID'];
-         $delName = $_POST['name'];
-         $committeeN = $_POST['role']; 
+     if(!empty($_POST['ID']) && !empty($_POST['name']) && !empty($_POST['role'] ) && !empty($_POST['responsibility'] )){
+         $ID = $_POST['ID'];
+         $name = $_POST['name'];
+         $role = $_POST['role'];
+         $responsibility= $_POST['responsibility'];
  
-         $query = "insert into organizingcommittee (ID, name, role) values ('$ID','$name','$role')";
+         $query = "INSERT into organizingcommittee (ID, name, role, responsibility) VALUES ('$ID','$name','$role', '$responsibility')";
  
          $run = mysqli_query($conn, $query) or die (mysqli_error());
  
@@ -110,25 +106,20 @@ $result = $conn->query($sql);
          }
  
      }
-    
-     else
+      else
      {
          echo "Please input data for all fields";
  
      }
  }
 
-
-
-
-
-  $conn->close();
+$conn->close();
 
 
 ?>
 
 
-
- </head>
+ </table>
+</div>
 </body>
 </html>
